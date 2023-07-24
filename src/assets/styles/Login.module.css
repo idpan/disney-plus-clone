@@ -1,0 +1,42 @@
+.login__container {
+  height: 100vh;
+  background-color: #0f0f14;
+  padding: 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("src/assets/images/login-background.jpg");
+}
+
+.login__content {
+  max-width: 600px;
+  width: 100%;
+  min-width: 1px;
+}
+.login__logo {
+  width: 100%;
+  object-fit: contain;
+}
+.login__description {
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+.login__ctaButton {
+  color: #f9f9f9;
+
+  background-color: #0063e5;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 16.5px 0;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
+}
+.login__ctaButton:hover {
+  background-color: #0483ee;
+  cursor: pointer;
+}
