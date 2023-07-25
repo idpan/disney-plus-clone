@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
 import { Navigate, Outlet } from "react-router";
-import Layout from "./components/Layout";
+import Navbar from "./layouts/Navbar";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -11,9 +11,8 @@ function App() {
   ) : (
     <>
       <Navigate to="/home"></Navigate>
-      <Layout>
-        <Outlet></Outlet>
-      </Layout>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
     </>
   );
 }

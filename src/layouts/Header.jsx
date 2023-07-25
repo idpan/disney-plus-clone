@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../assets/styles/header.module.css";
+import style from "../styles/header.module.css";
 import PageWrapper from "./PageWrapper";
 import movieData from "../../disneyPlusMoviesData.json";
 function Header() {
@@ -11,7 +11,6 @@ function Header() {
   };
 
   const movie = movieData.movies[movieIndex];
-  console.log(movie);
   const heroImage = movie.backgroundImg;
   const titleImage = movie.titleImg;
   return (

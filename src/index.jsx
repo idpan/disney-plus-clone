@@ -13,7 +13,7 @@ import Series from "./pages/Series";
 import Originals from "./pages/Originals";
 import Login from "./pages/Login";
 // style
-import "/src/assets/styles/index.css";
+import "/src/styles/index.css";
 const router = createBrowserRouter([
   {
     path: "/",

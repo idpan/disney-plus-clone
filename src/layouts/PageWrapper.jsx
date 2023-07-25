@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../assets/styles/pageWrapper.module.css";
+import style from "../styles/pageWrapper.module.css";
 function PageWrapper(props) {
   return <div className={style.pageWrapper}>{props.children}</div>;
 }

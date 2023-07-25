@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserLoginDetails } from "../features/user/userSlice";
 import { Link, Navigate, redirect } from "react-router-dom";
 
-import LoginCss from "/src/assets/styles/Login.module.css";
+import LoginCss from "/src/styles/Login.module.css";
 function Login() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);

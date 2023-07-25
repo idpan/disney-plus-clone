@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "../assets/styles/navbar.module.css";
+import style from "../styles/navbar.module.css";
 function Navbar({ userPhoto = "/src/assets/images/user.png" }) {
   return (
     <nav className={style.navbar}>

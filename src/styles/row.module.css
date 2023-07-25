@@ -1,0 +1,23 @@
+.row {
+  --poster-aspec-ratio: 9/7; /* width / height */
+  background-color: var(--main-bg-color);
+}
+.poster img {
+  width: 176px;
+  height: calc(176px * var(--poster-aspec-ratio));
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.wrapper {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  gap: 7px;
+}
+.title {
+  color: #e1e6f0;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 20px;
+}
