@@ -1,4 +1,5 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = import.meta.env.VITE_BASE_FETCH_URL;
 const requests = {
   fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US&append_to_response=videos`,
   fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
@@ -10,5 +11,9 @@ const requests = {
   fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   fetchAnimationMovies: `/discover/movie?api_key=${API_KEY}&with_genres=16`,
   fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US&append_to_response=video`,
+
+  searchMovieAndSeries: (query) => {
+    return `${BASE_URL}/search/multi?api_key=${API_KEY}&query=${query}`;
+  },
 };
 export default requests;

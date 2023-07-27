@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 .center {
   height: 100vh;
   display: flex;
@@ -18,21 +18,25 @@ button {
   padding: 0;
   box-sizing: border-box;
   font-weight: inherit;
+  font-family: "Inter", sans-serif;
 }
 :root {
-  font-family: "Inter", sans-serif;
   --main-bg-color: #040714;
-  --main-text-color: #f9f9f9;
+  --main-text-color: #e1e6f0;
+  --active-text-color: #fff;
 }
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 body {
+  overflow-x: hidden;
+  min-height: 100%;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
 }
 a {
-  color: #f9f9f9;
+  color: var(--main-text-color);
   text-decoration: none;
 }
 

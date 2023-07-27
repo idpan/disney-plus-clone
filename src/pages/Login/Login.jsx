@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { auth, provider } from "../firebase";
+import { auth, provider } from "../../firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserLoginDetails } from "../features/user/userSlice";
+import { setUserLoginDetails } from "../../features/user/userSlice";
 import { Link, Navigate, redirect } from "react-router-dom";
 
-import LoginCss from "/src/styles/Login.module.css";
+import style from "./Login.module.css";
 function Login() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -48,18 +48,15 @@ function Login() {
     <Navigate to="/home"></Navigate>
   ) : (
     <div>
-      <div className={LoginCss.login__container}>
-        <div className={LoginCss.login__content}>
+      <div className={style.login__container}>
+        <div className={style.login__content}>
           <img
-            className={LoginCss.login__logo}
+            className={style.login__logo}
             src="/src/assets/images/cta-logo-one.svg"
             alt="no image"
           />
 
-          <button
-            onClick={signInWithDemo}
-            className={LoginCss.login__ctaButton}
-          >
+          <button onClick={signInWithDemo} className={style.login__ctaButton}>
             GET Demo
           </button>
           <button
@@ -68,13 +65,13 @@ function Login() {
           >
             Login with Google
           </button>
-          <p className={LoginCss.login__description}>
+          <p className={style.login__description}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Perferendis deserunt corrupti odit neque facere dolorem
             consequuntur. Nulla similique inventore minima.
           </p>
           <img
-            className={LoginCss.login__logo}
+            className={style.login__logo}
             src="/src/assets/images/cta-logo-two.png"
             alt="no image"
           />

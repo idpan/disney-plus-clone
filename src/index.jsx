@@ -5,13 +5,13 @@ import { Provider } from "react-redux";
 import store from "../src/app/store.js";
 // component
 import App from "./App.jsx";
-import Profile from "./pages/Profile";
-import Search from "./pages/Search";
-import Home from "./pages/Home";
-import Movies from "./pages/Movies";
-import Series from "./pages/Series";
-import Originals from "./pages/Originals";
-import Login from "./pages/Login";
+import Profile from "./pages/Profile/Profile";
+import Search from "./pages/Search/Search";
+import Home from "./pages/Home/Home";
+import Movies from "./pages/Movies/Movies";
+import Series from "./pages/Series/Series";
+import Originals from "./pages/Originals/Originals";
+import Login from "./pages/Login/Login";
 // style
 import "/src/styles/index.css";
 const router = createBrowserRouter([

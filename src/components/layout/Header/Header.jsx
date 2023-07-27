@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import style from "../styles/header.module.css";
-import PageWrapper from "./PageWrapper";
-import movieData from "../../disneyPlusMoviesData.json";
+import style from "./header.module.css";
+import PageWrapper from "../PageWrapper/PageWrapper";
+import movieData from "../../../../disneyPlusMoviesData.json";
 function Header() {
   const [movieIndex, setMovieIndex] = useState(1);
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "../styles/navbar.module.css";
+import style from "./navbar.module.css";
 function Navbar({ userPhoto = "/src/assets/images/user.png" }) {
   return (
     <nav className={style.navbar}>
@@ -12,10 +12,10 @@ function Navbar({ userPhoto = "/src/assets/images/user.png" }) {
             alt="disney-logo"
           />
           <div className={style.menu}>
-            <Link to="/profile">
+            {/* <Link to="/profile">
               <img src={userPhoto} alt="" />
               <span>Profile</span>
-            </Link>
+            </Link> */}
             <Link to="/search">
               <img src="/src/assets/images/search-icon.svg" alt="" />
               <span>Search</span>

@@ -1,0 +1,9 @@
+.container {
+  padding-left: 100px;
+  height: 100%;
+  padding-right: 50px;
+}
+.container_collapse {
+  padding-left: 100px;
+  height: 100%;
+}

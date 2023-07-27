@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import style from "../styles/row.module.css";
+import style from "./row.module.css";
 const baseUrl = import.meta.env.VITE_BASE_FETCH_URL;
 const baseImgUrl = import.meta.env.VITE_BASE_IMAGE_URL;
 

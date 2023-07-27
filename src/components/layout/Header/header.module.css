@@ -16,7 +16,6 @@
   position: relative;
 }
 .hero_image {
-  width: 100%;
   position: fixed;
   left: 0;
   z-index: -999;
