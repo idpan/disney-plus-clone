@@ -1,0 +1,122 @@
+base_url : https://api.themoviedb.org/3
+api_key : a0ff4d09cbfc6388ac21e818e2ade130
+account-id : 20094720
+hotstar_only : watch_region=ID&with_watch_providers=122
+popular_first : sort_by=popularity.desc
+
+==========================================================================================================
+HOME
+==========================================================================================================
+
+<detail>
+1.detail : https://api.themoviedb.org/3/{'movie' | 'tv'}/{movie_id | tv_id}
+__params :{
+    {api_key}
+}
+response needed : 
+-runtime (in minute) // duration
+-release date 
+-genres
+- certification ( movie) | content rating (tv) // age_rating
+
+2. images : https://api.themoviedb.org/3/movie/{movie_id}/images
+__params :{
+    {api_key}
+}
+
+ Add to watchlist => 'POST'  : https://api.themoviedb.org/3/account/{account_id}/watchlist
+__params :{
+    {api_key}
+}
+__headers : {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMGZmNGQwOWNiZmM2Mzg4YWMyMWU4MThlMmFkZTEzMCIsInN1YiI6IjY0YTE0ZDQ4YzM5MGM1MDBlYjM1NWJhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UEz4pXXCGtkqQLiwHVloo56HG0QVZZ2jT7sqPsoU8_E'
+  },
+  body: JSON.stringify({media_type:{'movie' | 'tv'} , media_id: 11, watchlist: true})
+
+<detail>
+
+<Header>
+home header : https://api.themoviedb.org/3/trending/all/day
+__params : {
+    {api_key}
+}
+<Header>
+
+3.
+<Main>
+watchlist (conditional) 
+
+1.popular movie : {base_url}/discover/movie
+__params: {
+{api_key}
+{hotstar_only}
+    without_genres : 16
+}
+
+2.popular sohws : {base_url}discover/tv
+__params:{
+    {api_key}
+    {hotstar_only}
+    without_genres : 16
+}
+
+3.exclusive from indonesia : {base_url}/discover/movie
+__params:{
+    {api_key},
+    {hotstar_only}
+    with_origin_country = ID
+
+}
+4.romance : {base_url}/discover/movie
+__params :{
+    {api_key}
+    {hotstar_only}
+    {popularity_first}
+    with_genres = 10749
+}
+
+5.action and adventure : {base_url}/discover/movie
+__params :{
+    {api_key}
+    {hotstar_only}
+    {popularity_first}
+    with_genres = 28,12
+}
+
+
+6.comedy : {base_url}/discover/movie
+__params :{
+    {api_key}
+    {hotstar_only}
+    {popularity_first}
+    with_genres = 35
+
+}
+7.korean wave : {base_url}/discover/tv
+__params :{
+    {api_key}
+    {hotstar_only}
+    {popular_first}
+    with_origin_country : KR
+}
+8.world of pixar : {base_url}/discover/movie
+__params :{
+    {api_key}
+    {hotstar_only}
+    {popular_first}
+    with_genres : 16
+    with_companies : 3
+}
+9.anime collections : {base_url}/discover/tv
+__params :{
+    {api_key}
+    {hotstar_only}
+    {popular_first}
+    with_genres : 12
+    with_origin_country : JP
+
+}
+<Main>
+

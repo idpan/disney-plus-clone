@@ -1,0 +1,92 @@
+base_url : https://api.themoviedb.org/3
+api_key : a0ff4d09cbfc6388ac21e818e2ade130
+account-id : 20094720
+hotstar_only : watch_region=ID&with_watch_providers=122
+popular_first : sort_by=popularity.desc
+
+==========================================================================================================
+---series
+==========================================================================================================
+
+1. Add to watchlist => 'POST'  : https://api.themoviedb.org/3/account/{account_id}/watchlist
+__params :{
+    {api_key}
+}
+__headers : {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMGZmNGQwOWNiZmM2Mzg4YWMyMWU4MThlMmFkZTEzMCIsInN1YiI6IjY0YTE0ZDQ4YzM5MGM1MDBlYjM1NWJhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UEz4pXXCGtkqQLiwHVloo56HG0QVZZ2jT7sqPsoU8_E'
+  },
+  body: JSON.stringify({media_type: 'tv', media_id: 11, watchlist: true})
+
+2. 
+<Header>
+home header : https://api.themoviedb.org/3/trending/tv/day
+__params : {
+    {api_key}
+}
+<Header>
+
+
+
+popular series : {base_url}discover/tv
+__params:{
+    {api_key}
+    {hotstar_only}
+    without_genres : 16
+}
+
+original series  : {base_url}discover/tv
+__params:{
+    {api_key}
+    {hotstar_only}
+    without_genres : 16
+    with_networks :  2739
+}
+indonesian series  : {base_url}discover/tv
+__params:{
+    {api_key}
+    {hotstar_only}
+    without_genres : 16
+    with_origin_country : ID
+}
+k-series :{base_url}discover/tv
+__params:{
+    {api_key}
+    {hotstar_only}
+    without_genres : 16
+    with_origin_country : KR
+}
+
+u.s series :{base_url}discover/tv
+__params:{
+    {api_key}
+    {hotstar_only}
+    without_genres : 16
+    with_origin_country : US
+}
+
+anime collection : {base_url}/discover/tv
+__params :{
+    {api_key}
+    {hotstar_only}
+    {popular_first}
+    with_genres : 12
+    with_origin_country : JP
+
+}
+
+medical and crime : {base_url}/discover/tv
+__params :{
+    {api_key}
+    {hotstar_only}
+    with_genres = 80,
+
+}
+documentary series : {base_url}/discover/tv
+__params :{
+    {api_key}
+    {hotstar_only}
+    with_genres = 99,
+
+}

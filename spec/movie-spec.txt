@@ -1,0 +1,78 @@
+
+base_url : https://api.themoviedb.org/3
+api_key : a0ff4d09cbfc6388ac21e818e2ade130
+account-id : 20094720
+hotstar_only : watch_region=ID&with_watch_providers=122
+popular_first : sort_by=popularity.desc
+
+==========================================================================================================
+--movies
+==========================================================================================================
+
+1. Add to watchlist => 'POST'  : https://api.themoviedb.org/3/account/{account_id}/watchlist
+__params :{
+    {api_key}
+}
+__headers : {
+    accept: 'application/json',
+    'content-type': 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMGZmNGQwOWNiZmM2Mzg4YWMyMWU4MThlMmFkZTEzMCIsInN1YiI6IjY0YTE0ZDQ4YzM5MGM1MDBlYjM1NWJhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UEz4pXXCGtkqQLiwHVloo56HG0QVZZ2jT7sqPsoU8_E'
+  },
+  body: JSON.stringify({media_type: 'movie', media_id: 11, watchlist: true})
+
+2. 
+<Header>
+home header : https://api.themoviedb.org/3/trending/movie/day
+__params : {
+    {api_key}
+}
+<Header>
+
+
+
+popular movies : {base_url}/discover/movie
+__params: {
+{api_key}
+{hotstar_only}
+    without_genres : 16
+}
+
+latest movies :{base_url}/discover/movie
+__params: {
+{api_key}
+{hotstar_only}
+    sort_by : primary_release_date.desc
+}
+
+original Movies  :{base_url}/discover/movie
+__params: {
+{api_key}
+{hotstar_only}
+with_companies: 2
+}
+
+asian movies :{base_url}/discover/movie
+__params: {
+{api_key}
+{hotstar_only}
+without_genres :16
+with_original_language : ja|ko
+}
+sci-fi movies :{base_url}/discover/movie
+__params: {
+{api_key}
+{hotstar_only}
+with_genres : 878
+}
+action and adventure :{base_url}/discover/movie
+__params: {
+{api_key}
+{hotstar_only}
+with_genres : 28,12
+}
+documentaries :{base_url}/discover/movie
+__params: {
+{api_key}
+{hotstar_only}
+with_genres : 99
+}
