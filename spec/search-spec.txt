@@ -1,0 +1,19 @@
+base_url : https://api.themoviedb.org/3
+api_key : a0ff4d09cbfc6388ac21e818e2ade130
+account-id : 20094720
+hotstar_only : watch_region=ID&with_watch_providers=122
+popular_first : sort_by=popularity.desc
+
+
+==========================================================================================================
+--SEARCH
+==========================================================================================================
+
+'GET' : {base_url}/search/multi
+__params{
+    {api_key}
+    query: user input
+}  // filter to not include media type 'person'
+
+popular searches 
+'GET' : {base_url}/trending/all/day
