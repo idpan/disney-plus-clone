@@ -1,17 +1,27 @@
 swiper-container {
-  height: 50px;
+  /* height: fit-content; */
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   right: 100px;
   width: 300px;
+
 }
 
 swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: seagreen;
+  margin-top: 10px;
+  height: fit-content;
   width: 80px;
+  transition: all .2s;
+  cursor: pointer;
+}
+swiper-slide:hover{
+  margin-top: 5px;
+  transform: scale(1.2);
+}
+swiper-slide img{
+  border-radius: 5px;
+  object-fit: contain;
+  width: 100%;
 }
 .swiper-button-next svg,
 .swiper-button-prev svg {
@@ -19,12 +29,36 @@ swiper-slide {
 }
 .swiper-button-next,
 .swiper-button-prev {
-  background-repeat: no-repeat;
-  background-position: center;
+  margin-top: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 45px !important;
+  height: 100% !important;
 }
 .swiper-button-next {
+  /* background-color: black; */
+  right: 0 !important;
+  background-image: linear-gradient(to left ,black,transparent ) ;
+}
+
+.swiper-button-prev {
+  left: 0 !important;
+  background-image: linear-gradient(to right ,black,transparent ) ;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+.swiper-button-next::after{
   background-image: url(/src/assets/images/arrow\ right.svg);
 }
-.swiper-button-prev {
+.swiper-button-prev::after{
   background-image: url(/src/assets/images/arrow\ left.svg);
 }
