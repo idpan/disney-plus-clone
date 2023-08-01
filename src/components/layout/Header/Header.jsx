@@ -1,31 +1,37 @@
-import style from "./header.module.css";
+import React, { useEffect, useState, useRef } from "react";
+import axios from "axios";
 import PageWrapper from "../PageWrapper/PageWrapper";
 import movieData from "../../../../disneyPlusMoviesData.json";
 
-import React, { useEffect, useState, useRef } from "react";
 import { register } from "swiper/element/bundle";
+
+import style from "./header.module.css";
 import "./style-swiper.css";
+
 register();
-function Header() {
+
+function Header({fetchUrl}) {
   const [movieIndex, setMovieIndex] = useState(1);
-
-  const nextHandler = () => {
-    if (movieIndex === 16) return setMovieIndex(1);
-    return setMovieIndex(movieIndex + 1);
-  };
-
-  const movie = movieData.movies[movieIndex];
-  const heroImage = movie.backgroundImg;
-  const titleImage = movie.titleImg;
+  const [movies,setMovies] = useState([]);
   const swiperElRef = useRef(null);
+  
+  
+  const fetchDataMovies = async (fetchUrl) => {
+    const BASE_URL = import.meta.env.VITE_BASE_TMDB_URL
+    const result = await axios.get(fetchUrl);
+    const data = result.data.results;
+    console.log(data)
+    setMovies(data);
+    return data;
+  };
 
   useEffect(() => {
     const swiperEl = swiperElRef.current;
+    fetchDataMovies(fetchUrl)
     const params = {
            // array with CSS urls
       injectStylesUrls: ["/src/components/layout/Header/style-swiper.css"],
     };
-
     Object.assign(swiperEl, params);
     swiperEl.initialize();
   }, []);
