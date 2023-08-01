@@ -1,4 +1,5 @@
 .header {
+  background-color: blueviolet;
   --aspect-ratio: 21 * 9;
   width: 100vw;
   height: calc(100vw / var(--aspect-ratio));
@@ -72,4 +73,16 @@
   margin-bottom: 10px;
   width: 300px;
   /* border: 2px solid salmon; */
+}
+/* swiper stilyng */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper_slider {
+  background-color: salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

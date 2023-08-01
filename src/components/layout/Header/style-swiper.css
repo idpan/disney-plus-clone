@@ -1,0 +1,30 @@
+swiper-container {
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+  width: 300px;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: seagreen;
+  width: 80px;
+}
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  display: none;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.swiper-button-next {
+  background-image: url(/src/assets/images/arrow\ right.svg);
+}
+.swiper-button-prev {
+  background-image: url(/src/assets/images/arrow\ left.svg);
+}

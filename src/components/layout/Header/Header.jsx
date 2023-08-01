@@ -1,7 +1,11 @@
-import React, { useState } from "react";
 import style from "./header.module.css";
 import PageWrapper from "../PageWrapper/PageWrapper";
 import movieData from "../../../../disneyPlusMoviesData.json";
+
+import React, { useEffect, useState, useRef } from "react";
+import { register } from "swiper/element/bundle";
+import "./style-swiper.css";
+register();
 function Header() {
   const [movieIndex, setMovieIndex] = useState(1);
 
@@ -13,10 +17,38 @@ function Header() {
   const movie = movieData.movies[movieIndex];
   const heroImage = movie.backgroundImg;
   const titleImage = movie.titleImg;
+  const swiperElRef = useRef(null);
+
+  useEffect(() => {
+    const swiperEl = swiperElRef.current;
+    const params = {
+           // array with CSS urls
+      injectStylesUrls: ["/src/components/layout/Header/style-swiper.css"],
+    };
+
+    Object.assign(swiperEl, params);
+    swiperEl.initialize();
+  }, []);
   return (
     <header className={style.header}>
-      <PageWrapper>
-        <img className={style.hero_image} src={heroImage} alt="" />
+      <swiper-container
+        init="false"
+        ref={swiperElRef}
+        slides-per-view="auto"
+        navigation="true"
+        space-between="10"
+        initial-slide="0"
+        slides-per-group="4"
+      >
+        <swiper-slide>Slide 1</swiper-slide>
+        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>Slide 4</swiper-slide>
+        <swiper-slide>Slide 5</swiper-slide>
+      </swiper-container>
+
+        {/* <img className={style.hero_image} src={heroImage} alt="" /> */}
+      {/* <PageWrapper>
         <div className={style.content}>
           <img className={style.title} src={titleImage} alt="title" />
           <div className={style.info}>
@@ -34,11 +66,7 @@ function Header() {
             <span>Watch Now</span>
           </button>
         </div>
-        <button onClick={nextHandler} className={style.slider}>
-          {" "}
-          Next {">"}{" "}
-        </button>
-      </PageWrapper>
+      </PageWrapper> */}
     </header>
   );
 }
