@@ -7,22 +7,23 @@ import { register } from "swiper/element/bundle";
 
 import style from "./header.module.css";
 import "./style-swiper.css";
-
+const BASE_IMG_URL = import.meta.env.VITE_BASE_IMAGE_URL
 register();
 
 function Header({fetchUrl}) {
-  const [movieIndex, setMovieIndex] = useState(1);
   const [movies,setMovies] = useState([]);
   const swiperElRef = useRef(null);
   
   
   const fetchDataMovies = async (fetchUrl) => {
+    const REQUIRED_MOVIE_AMOUNT = 5
     const BASE_URL = import.meta.env.VITE_BASE_TMDB_URL
-    const result = await axios.get(fetchUrl);
-    const data = result.data.results;
+    const respon = await axios.get(fetchUrl);
+    const data = respon.data.results;
+    const result = data.slice(0,REQUIRED_MOVIE_AMOUNT)
     console.log(data)
-    setMovies(data);
-    return data;
+    setMovies(result);
+    return result;
   };
 
   useEffect(() => {
@@ -46,11 +47,14 @@ function Header({fetchUrl}) {
         initial-slide="0"
         slides-per-group="4"
       >
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
+        {movies.map((movie)=>{
+
+return(
+  <swiper-slide>
+    <img src={BASE_IMG_URL + movie.backdrop_path} alt={movie.title} />
+  </swiper-slide>
+)
+        })}
       </swiper-container>
 
         {/* <img className={style.hero_image} src={heroImage} alt="" /> */}
