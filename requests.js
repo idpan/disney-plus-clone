@@ -1,5 +1,5 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
-const BASE_URL = import.meta.env.VITE_BASE_FETCH_URL;
+const BASE_URL = import.meta.env.VITE_BASE_TMDB_URL;
 const ACCOUNT_ID = import.meta.env.VITE_BASE_ACCOUNT_ID;
 const HOTSTAR_ONLY = "watch_region=ID&with_watch_providers=122";
 const WITHOUT_ANIMATION = "without_genres : 16";
