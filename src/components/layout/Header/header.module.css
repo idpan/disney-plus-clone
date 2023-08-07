@@ -1,5 +1,13 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .header {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   --aspect-ratio: 21 * 9;
   width: 100vw;
   height: calc(100vw / var(--aspect-ratio));
@@ -17,6 +25,8 @@
   position: relative;
 }
 .hero_image {
+  animation-name: fade-in;
+  animation-duration: 1s;
   position: fixed;
   left: 0;
   z-index: -999;
