@@ -4,24 +4,39 @@ swiper-container {
   bottom: 30px;
   right: 100px;
   width: 300px;
-
 }
 
 swiper-slide {
   margin-top: 10px;
-  height: fit-content;
+  /* height: fit-content; */
   width: 80px;
-  transition: all .2s;
-  cursor: pointer;
+  transition: all 0.1s;
 }
-swiper-slide:hover{
+swiper-slide:last-child:hover {
+  margin-right: 5px;
+}
+swiper-slide:hover {
   margin-top: 5px;
-  transform: scale(1.2);
+  cursor: pointer;
+  pointer-events: auto;
+  width: 85px;
 }
-swiper-slide img{
+swiper-slide img {
+  opacity: 0.6;
+  border: 2px solid transparent;
   border-radius: 5px;
   object-fit: contain;
   width: 100%;
+}
+swiper-slide:hover img {
+  opacity: 1 !important ;
+}
+swiper-container .active ~ label img {
+  border: 2px solid rgb(236, 236, 236);
+  opacity: 1;
+}
+swiper-container input {
+  display: none;
 }
 .swiper-button-next svg,
 .swiper-button-prev svg {
@@ -29,36 +44,35 @@ swiper-slide img{
 }
 .swiper-button-next,
 .swiper-button-prev {
-  margin-top: 0 !important;
+  margin-top: 10px !important;
   top: 0 !important;
   bottom: 0 !important;
   width: 45px !important;
-  height: 100% !important;
+  height: 45px !important;
 }
 .swiper-button-next {
   /* background-color: black; */
   right: 0 !important;
-  background-image: linear-gradient(to left ,black,transparent ) ;
+  background-image: linear-gradient(to left, black, transparent);
 }
 
 .swiper-button-prev {
   left: 0 !important;
-  background-image: linear-gradient(to right ,black,transparent ) ;
+  background-image: linear-gradient(to right, black, transparent);
 }
 
 .swiper-button-next::after,
-.swiper-button-prev::after{
+.swiper-button-prev::after {
   content: "";
   position: absolute;
   width: 50px;
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  
 }
-.swiper-button-next::after{
+.swiper-button-next::after {
   background-image: url(/src/assets/images/arrow\ right.svg);
 }
-.swiper-button-prev::after{
+.swiper-button-prev::after {
   background-image: url(/src/assets/images/arrow\ left.svg);
 }
