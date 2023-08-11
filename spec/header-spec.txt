@@ -21,7 +21,7 @@ age rating
 https://api.themoviedb.org/3/movie/{movie_id}
 __params : {
     {api_key}
-    append_to_response : videos,images,release_dates,similar
+    append_to_response : videos,images,release_dates,similar,content_ratings
 }
 
 // SERIES

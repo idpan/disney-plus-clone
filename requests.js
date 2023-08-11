@@ -7,7 +7,7 @@ const requests = {
   home: {
     getWatchlistMovie: `${BASE_URL}/account/${ACCOUNT_ID}/watchlist/movies`,
     getWatchlistSeries: `${BASE_URL}/account/${ACCOUNT_ID}/watchlist/tv`,
-    getTrendingAll: `${BASE_URL}/trending/all/day?api_key=${API_KEY}`,
+    getTrendingAll: `${BASE_URL}/trending/all/day?api_key=${API_KEY}&append_to_response=videos,images,release_dates,similar,content_ratings`,
     getPopularMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&${HOTSTAR_ONLY}&${WITHOUT_ANIMATION}`,
     getPopularShows: `${BASE_URL}/discover/tv?api_key=${API_KEY}&${HOTSTAR_ONLY}&${WITHOUT_ANIMATION}`,
     getIndonesianMovie: `${BASE_URL}/discover/movie?api_key=${API_KEY}&${HOTSTAR_ONLY}&with_origin_country=ID`,

@@ -14,6 +14,7 @@ import Originals from "./pages/Originals/Originals";
 import Login from "./pages/Login/Login";
 // style
 import "/src/styles/index.css";
+import SandBox from "./pages/SandBox.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: "/login", element: <Login /> },
+  { path: "/sandbox", element: <SandBox></SandBox> },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

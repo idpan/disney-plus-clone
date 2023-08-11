@@ -14,8 +14,8 @@ function Home() {
     <Navigate to="/"></Navigate>
   ) : (
     <>
-      <Header fetchUrl={requests.home.getTrendingAll} ></Header>
-      <MainContainer>
+      <Header fetchUrl={requests.home.getTrendingAll}></Header>
+      {/* <MainContainer>
         <PageWrapper isCollapse={true}>
           <Row title="trending" fetchUrl={requests.fetchTrending}></Row>
           <Row title="top rated" fetchUrl={requests.fetchTopRated}></Row>
@@ -28,7 +28,7 @@ function Home() {
           <Row title="romance" fetchUrl={requests.fetchRomanceMovies}></Row>
           <Row title="horror" fetchUrl={requests.fetchHorrorMovies}></Row>
         </PageWrapper>
-      </MainContainer>
+      </MainContainer> */}
     </>
   );
 }
