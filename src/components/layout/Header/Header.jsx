@@ -153,10 +153,15 @@ function Header({ fetchUrl }) {
               return <span>{genre}</span>;
             })}
           </div>
-          <button>
-            <span className={style.button_icon}></span>
-            <span>Watch Now</span>
-          </button>
+          <div className={style.btn_header_wrapper}>
+            <button className={style.watch_btn}>
+              <span className={style.button_icon}></span>
+              <span>Watch Now</span>
+            </button>
+            <button className={style.addToWatchlist_btn}>
+              <span></span>
+            </button>
+          </div>
         </div>
       </PageWrapper>
     </header>
