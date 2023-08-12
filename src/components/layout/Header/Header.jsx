@@ -26,6 +26,7 @@ function Header({ fetchUrl }) {
   const [featMovie, setFeatMovie] = useState({});
   const [dataContent, setDataContent] = useState([]);
   const swiperElRef = useRef(null);
+  const detailHeaderLink = useRef(null);
 
   const fetchDataContent = async (fetchUrl) => {
     const REQUIRED_MOVIE_AMOUNT = 5;
@@ -78,56 +79,66 @@ function Header({ fetchUrl }) {
   }, [dataContent]);
 
   return (
-    <header className={style.header}>
-      <swiper-container
-        init="false"
-        ref={swiperElRef}
-        slides-per-view="auto"
-        navigation="true"
-        space-between="5"
-        initial-slide="0"
-        slides-per-group="2"
-      >
-        {dataContent?.map((content, index) => {
-          return (
-            <swiper-slide key={content?.id}>
-              <input
-                defaultChecked={index === 0}
-                // checked={selectedMovieId === content.id}
-                onChange={function (e) {
-                  setFeatMovie(content);
-                  const actived = document.querySelector(".active");
-                  actived.classList.remove("active");
-                  e.target.classList.add("active");
-                }}
-                value={content?.id}
-                type="radio"
-                id={content?.id + "-radio"}
-                name="displayed_movie"
-                className={index === 0 ? "active" : ""}
-              />
-              <label htmlFor={content?.id + "-radio"}>
-                <img
-                  src={BASE_IMG_URL + content?.backdrop_path}
-                  alt={content?.title}
-                />
-              </label>
-            </swiper-slide>
-          );
-        })}
-      </swiper-container>
+    <header
+      className={style.header}
+      onClick={function (e) {
+        console.log(e.target);
+        detailHeaderLink.current.click();
+      }}
+    >
       <Link
+        ref={detailHeaderLink}
         className={style.detail_hero}
         to={`/detail?media_type=${featMovie.media_type}&id=${featMovie.id}`}
-      >
+      ></Link>
+      <PageWrapper>
+        <swiper-container
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          init="false"
+          ref={swiperElRef}
+          slides-per-view="auto"
+          navigation="true"
+          space-between="5"
+          initial-slide="0"
+          slides-per-group="2"
+        >
+          {dataContent?.map((content, index) => {
+            return (
+              <swiper-slide key={content?.id}>
+                <input
+                  defaultChecked={index === 0}
+                  // checked={selectedMovieId === content.id}
+                  onChange={function (e) {
+                    setFeatMovie(content);
+                    const actived = document.querySelector(".active");
+                    actived.classList.remove("active");
+                    e.target.classList.add("active");
+                  }}
+                  value={content?.id}
+                  type="radio"
+                  id={content?.id + "-radio"}
+                  name="displayed_movie"
+                  className={index === 0 ? "active" : ""}
+                />
+                <label htmlFor={content?.id + "-radio"}>
+                  <img
+                    src={BASE_IMG_URL + content?.backdrop_path}
+                    alt={content?.title}
+                  />
+                </label>
+              </swiper-slide>
+            );
+          })}
+        </swiper-container>
+
         <img
           key={featMovie?.id + "-featMovie"}
           className={style.hero_image}
           src={BASE_IMG_URL + featMovie?.backdrop_path}
           alt={featMovie?.title}
         />
-      </Link>
-      <PageWrapper>
         <div className={style.content}>
           {featMovie?.logo_path && (
             <img
@@ -159,7 +170,12 @@ function Header({ fetchUrl }) {
               return <span>{genre}</span>;
             })}
           </div>
-          <div className={style.btn_header_wrapper}>
+          <div
+            className={style.btn_header_wrapper}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
             <button className={style.watch_btn}>
               <span className={style.button_icon}></span>
               <span>Watch Now</span>
