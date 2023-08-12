@@ -9,6 +9,7 @@ import "./style-swiper.css";
 import { push } from "firebase/database";
 import { async } from "@firebase/util";
 import { seriesDetail, movieDetail } from "../../../detailConstructor";
+import { Link } from "react-router-dom";
 const BASE_IMG_URL = import.meta.env.VITE_BASE_IMAGE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 register(); // TO activate swiperJS
@@ -115,12 +116,17 @@ function Header({ fetchUrl }) {
           );
         })}
       </swiper-container>
-      <img
-        key={featMovie?.id + "-featMovie"}
-        className={style.hero_image}
-        src={BASE_IMG_URL + featMovie?.backdrop_path}
-        alt={featMovie?.title}
-      />
+      <Link
+        className={style.detail_hero}
+        to={`/detail?media_type=${featMovie.media_type}&id=${featMovie.id}`}
+      >
+        <img
+          key={featMovie?.id + "-featMovie"}
+          className={style.hero_image}
+          src={BASE_IMG_URL + featMovie?.backdrop_path}
+          alt={featMovie?.title}
+        />
+      </Link>
       <PageWrapper>
         <div className={style.content}>
           {featMovie?.logo_path && (
