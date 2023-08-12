@@ -22,12 +22,12 @@ function toHoursAndMinutes(totalMinutes) {
   return result;
 }
 
-function Header({ fetchUrl }) {
+function Header({ fetchUrl, isDetailHeader }) {
   const [featMovie, setFeatMovie] = useState({});
   const [dataContent, setDataContent] = useState([]);
   const swiperElRef = useRef(null);
   const detailHeaderLink = useRef(null);
-
+  console.log(isDetailHeader);
   const fetchDataContent = async (fetchUrl) => {
     const REQUIRED_MOVIE_AMOUNT = 5;
     const respon = await axios.get(fetchUrl);
@@ -80,17 +80,22 @@ function Header({ fetchUrl }) {
 
   return (
     <header
-      className={style.header}
+      className={
+        style.header + " " + (isDetailHeader ? style.header_detail : "")
+      }
       onClick={function (e) {
-        console.log(e.target);
-        detailHeaderLink.current.click();
+        if (!isDetailHeader) {
+          detailHeaderLink.current.click();
+        }
       }}
     >
-      <Link
-        ref={detailHeaderLink}
-        className={style.detail_hero}
-        to={`/detail?media_type=${featMovie.media_type}&id=${featMovie.id}`}
-      ></Link>
+      {!isDetailHeader && (
+        <Link
+          ref={detailHeaderLink}
+          className={style.detail_hero}
+          to={`/detail?media_type=${featMovie.media_type}&id=${featMovie.id}`}
+        ></Link>
+      )}
       <PageWrapper>
         <swiper-container
           onClick={(e) => {

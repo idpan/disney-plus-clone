@@ -6,6 +6,9 @@
     opacity: 1;
   }
 }
+.header_detail:hover {
+  cursor: auto !important;
+}
 .header {
   /* background-color: blueviolet; */
   --aspect-ratio: 21 * 9;
