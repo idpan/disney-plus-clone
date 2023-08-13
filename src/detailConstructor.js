@@ -51,14 +51,9 @@ async function movieDetail(movieId) {
     const objResult = data?.find((e) => {
       return e.iso_639_1 == "en";
     });
-
-    if (objResult || objResult[0]) {
-      return objResult.file_path;
-    }
-    return undefined;
+    return objResult?.file_path;
   };
   return getData(movieId).then((movie) => {
-    console.log(movie);
     const detail = {
       title: movie?.title,
       id: movie?.id,
@@ -172,10 +167,7 @@ async function seriesDetail(seriesId) {
     const objResult = data?.find((e) => {
       return e.iso_639_1 == "en";
     });
-    if (objResult && objResult[0]) {
-      return objResult.file_path;
-    }
-    return objResult;
+    return objResult?.file_path;
   };
   const getData = async (seriesId) => {
     const res = await fetch(

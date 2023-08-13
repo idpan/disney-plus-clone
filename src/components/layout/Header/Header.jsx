@@ -27,7 +27,7 @@ function Header({ fetchUrl, isDetailHeader }) {
   const [dataContent, setDataContent] = useState([]);
   const swiperElRef = useRef(null);
   const detailHeaderLink = useRef(null);
-  console.log(isDetailHeader);
+
   const fetchDataContent = async (fetchUrl) => {
     const REQUIRED_MOVIE_AMOUNT = 5;
     const respon = await axios.get(fetchUrl);
@@ -53,15 +53,24 @@ function Header({ fetchUrl, isDetailHeader }) {
 
     return Promise.all(result);
   };
-
+  const getDataContent = async (fetchUrl) => {
+    const resDataContent = await fetchDataContent(fetchUrl);
+    const transformedData = await transformDataContent(resDataContent);
+    setDataContent(transformedData);
+    console.log(transformedData);
+  };
+  // useEffect(() => {
+  //   // fetchDataContent(fetchUrl).then((data) => {
+  //   //   transformDataContent(data).then((data) => {
+  //   //     setDataContent(data);
+  //   //     console.log(data);
+  //   //   });
+  //   getDataContent(fetchUrl)
+  //   });
+  // } ,[]);
   useEffect(() => {
-    fetchDataContent(fetchUrl).then((data) => {
-      transformDataContent(data).then((data) => {
-        setDataContent(data);
-      });
-    });
+    getDataContent(fetchUrl);
   }, []);
-
   useEffect(() => {
     const swiperEl = swiperElRef.current;
     const params = {
@@ -73,8 +82,10 @@ function Header({ fetchUrl, isDetailHeader }) {
   }, []);
 
   useEffect(() => {
+    console.log(dataContent);
     if (dataContent[0]) {
       setFeatMovie(dataContent[0]);
+      console.log(dataContent);
     }
   }, [dataContent]);
 
@@ -137,7 +148,6 @@ function Header({ fetchUrl, isDetailHeader }) {
             );
           })}
         </swiper-container>
-
         <img
           key={featMovie?.id + "-featMovie"}
           className={style.hero_image}
@@ -145,6 +155,7 @@ function Header({ fetchUrl, isDetailHeader }) {
           alt={featMovie?.title}
         />
         <div className={style.content}>
+          {console.log(featMovie)}
           {featMovie?.logo_path && (
             <img
               className={style.title}
