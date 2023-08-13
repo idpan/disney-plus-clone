@@ -19,7 +19,7 @@ function Home() {
         <PageWrapper isCollapse={true}>
           <Row title="trending" fetchUrl={requests.fetchTrending}></Row>
           <Row title="top rated" fetchUrl={requests.fetchTopRated}></Row>
-          <Row title="animation" fetchUrl={requests.fetchAnimationMovies}></Row>
+          <Row title="animation" fetchUrl={requests.home.getAnimeSeries}></Row>
           <Row title="action" fetchUrl={requests.fetchActionMovies}></Row>
           <Row title="comedy" fetchUrl={requests.fetchComedyMovies}></Row>
           <Row title="romance" fetchUrl={requests.fetchRomanceMovies}></Row>
