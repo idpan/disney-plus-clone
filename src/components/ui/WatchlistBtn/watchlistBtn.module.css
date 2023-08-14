@@ -1,7 +1,9 @@
 .addToWatchlist_btn {
   color: white;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.068);
   display: inline-block;
-  padding: 10px;
+  /* padding: 18px; */
   border-radius: 7px;
+  min-width: 57px;
+  height: 57px;
 }
