@@ -22,10 +22,10 @@ function Card(props) {
             <WatchlistBtn />
           </div>
           <div className={style.info}>
-            <span>{props.release_year}</span>
-            <span>{props.duration}</span>
-            <span>{props.original_laguage}Korean</span>
-            <span>{props.age_rating}</span>
+            {props.release_year && <span>{props.release_year}</span>}
+            {props.duration && <span>{props.duration}</span>}
+            {props.original_language && <span>{props.original_language}</span>}
+            {props.age_rating && <span>{props.age_rating}</span>}
           </div>
           <p className={style.overview}>{props.overview}</p>
         </div>
