@@ -18,14 +18,17 @@ import useFetchData from "../../../features/hooks/useFetchData";
 import transformToDetailContent from "../../../features/utils/transformToDetailContent.js";
 const baseImgUrl = import.meta.env.VITE_BASE_IMAGE_URL;
 
-function Row({ title, fetchUrl }) {
-  const [movies, setMovies] = useState([]);
+function Row({ title, fetchUrl, mediaType }) {
+  const [movies, setMovies] = useState(null);
 
-  transformToDetailContent(useFetchData(fetchUrl))
-    .then((res) => {
-      setMovies(res);
-    })
-    .catch((err) => console.log(err));
+  const rawDataContent = useFetchData(fetchUrl);
+  useEffect(() => {
+    transformToDetailContent(rawDataContent, mediaType)
+      .then((res) => {
+        setMovies(res);
+      })
+      .catch((err) => console.log(err));
+  }, [rawDataContent]);
 
   return (
     <div className={style.row}>
@@ -33,16 +36,16 @@ function Row({ title, fetchUrl }) {
       <div className={style.wrapper}>
         {movies?.map((movie, index) => {
           return (
-            <Link key={index} to={`/detail?id=${movie.id}`}>
+            <Link key={index} to={`/detail?id=${movie?.id}`}>
               <Card
-                title={movie.title}
-                poster={movie.poster_path}
-                backdrop_path={movie.backdrop_path}
-                release_year={movie.release_year}
-                original_language={movie.original_language}
-                duration={movie.duration}
-                age_rating={movie.age_rating}
-                overview={movie.overview}
+                title={movie?.title}
+                poster={movie?.poster_path}
+                backdrop_path={movie?.backdrop_path}
+                release_year={movie?.release_year}
+                original_language={movie?.original_language}
+                duration={movie?.duration}
+                age_rating={movie?.age_rating}
+                overview={movie?.overview}
               ></Card>
             </Link>
           );
