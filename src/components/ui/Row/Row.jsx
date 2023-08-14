@@ -32,16 +32,18 @@ function Row({ title, fetchUrl }) {
       <h2 className={style.title}>{title}</h2>
       <div className={style.wrapper}>
         {movies?.map((movie, index) => {
-          const moviePoster = baseImgUrl + movie.poster_path;
-          const movieTitle = movie.title;
-          const movieId = movie.id;
-
           return (
             <Link key={index} to={`/detail?id=${movieId}`}>
-              <Card title={movie.title}></Card>
-              <div key={index} className={style.poster}>
-                <img key={index} src={moviePoster} alt={movieTitle} />
-              </div>
+              <Card
+                title={movie.title}
+                poster={movie.poster_path}
+                backdrop_path={movie.backdrop_path}
+                release_year={movie.release_year}
+                original_language={movie.original_language}
+                duration={movie.duration}
+                age_rating={movie.age_rating}
+                overview={movie.overview}
+              ></Card>
             </Link>
           );
         })}
