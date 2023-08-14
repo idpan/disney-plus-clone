@@ -33,7 +33,7 @@ function Row({ title, fetchUrl }) {
       <div className={style.wrapper}>
         {movies?.map((movie, index) => {
           return (
-            <Link key={index} to={`/detail?id=${movieId}`}>
+            <Link key={index} to={`/detail?id=${movie.id}`}>
               <Card
                 title={movie.title}
                 poster={movie.poster_path}
