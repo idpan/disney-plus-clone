@@ -16,7 +16,7 @@ const requests = {
     getComedyMovie: `${BASE_URL}/discover/movie?api_key=${API_KEY}&${HOTSTAR_ONLY}&with_genres=35`,
     getKoreanSeries: `${BASE_URL}/discover/tv?api_key=${API_KEY}&${HOTSTAR_ONLY}&with_origin_country=KR`,
     getPixarMovie: `${BASE_URL}/discover/movie?api_key=${API_KEY}&${HOTSTAR_ONLY}&with_companes=3`,
-    getAnimeSeries: `${BASE_URL}/discover/tv?api_key=${API_KEY}&${HOTSTAR_ONLY}&with_genres=12&with_origin_country=JP`,
+    getAnimeSeries: `${BASE_URL}/discover/tv?api_key=${API_KEY}&${HOTSTAR_ONLY}&with_genres=16&with_origin_country=JP`,
   },
   series: {
     getTrendingSeries: `${BASE_URL}/trending/tv/day?api_key=${API_KEY}`,
