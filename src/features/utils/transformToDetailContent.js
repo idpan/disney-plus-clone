@@ -1,22 +1,24 @@
 import getDetailMovie from "./getDetailMovie";
 import getDetailSeries from "./getDetailSeries";
 
-const transformToDetailContent = (data) => {
+const transformToDetailContent = (data, mediaType) => {
   //transform data to direct object
-  const resultPromise = data?.map((content) => {
-    if (content.media_type === "movie") {
+  let result;
+  if (mediaType === "movie") {
+    result = data?.map((content) => {
       return getDetailMovie(content.id).then((res) => {
         return res;
       });
-    }
-    if (content.media_type === "tv") {
+    });
+  }
+  if (mediaType === "tv") {
+    result = data?.map((content) => {
       return getDetailSeries(content.id).then((res) => {
         return res;
       });
-    }
-    return;
-  });
-  return Promise.all(resultPromise);
+    });
+  }
+  return Promise.all(result);
 };
 
 export default transformToDetailContent;
