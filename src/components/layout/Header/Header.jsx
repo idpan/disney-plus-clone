@@ -155,7 +155,7 @@ function Header({ fetchUrl, isDetailHeader }) {
           alt={featMovie?.title}
         />
         <div className={style.content}>
-          {console.log(featMovie)}
+          {/* {console.log(featMovie)} */}
           {featMovie?.logo_path && (
             <img
               className={style.title}

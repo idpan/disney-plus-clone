@@ -17,10 +17,10 @@ function Home() {
       <Header fetchUrl={requests.home.getTrendingAll}></Header>
       <MainContainer>
         <PageWrapper isCollapse={true}>
-          {/* <Row
+          <Row
             title="Anime Collections"
-            fetchUrl={requests.home.getAnimeSeries}
-          ></Row> */}
+            fetchUrl={requests.home.getTrendingAll}
+          ></Row>
         </PageWrapper>
       </MainContainer>
     </>
