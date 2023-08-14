@@ -1,5 +1,4 @@
 .row {
-  --poster-aspec-ratio: 9/7; /* width / height */
   background-color: var(--main-bg-color);
 }
 .poster img {
@@ -14,7 +13,7 @@
   display: flex;
   gap: 10px;
 
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 .title {
   color: #e1e6f0;
