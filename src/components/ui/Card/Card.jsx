@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import WatchlistBtn from "../WatchlistBtn/WatchlistBtn";
 import WatchNowBtn from "../WatchNowBtn/WatchNowBtn";
 import style from "./card.module.css";
-import "./cardHover.css";
 const image_base = import.meta.env.VITE_BASE_IMAGE_URL;
 function Card(props) {
   return (

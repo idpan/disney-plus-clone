@@ -22,7 +22,7 @@ function toHoursAndMinutes(totalMinutes) {
   return result;
 }
 
-function Header({ fetchUrl, isDetailHeader }) {
+function Header({ fetchUrl, isDetailHeader, mediaType }) {
   const [featMovie, setFeatMovie] = useState({});
   const [dataContent, setDataContent] = useState([]);
   const swiperElRef = useRef(null);
@@ -38,6 +38,16 @@ function Header({ fetchUrl, isDetailHeader }) {
   const transformDataContent = async (data) => {
     //transform data to direct object
     const result = data?.map((content) => {
+      if (mediaType === "movie") {
+        return movieDetail(content.id).then((res) => {
+          return res;
+        });
+      }
+      if (mediaType === "tv") {
+        return seriesDetail(content.id).then((res) => {
+          return res;
+        });
+      }
       if (content.media_type === "movie") {
         return movieDetail(content.id).then((res) => {
           return res;

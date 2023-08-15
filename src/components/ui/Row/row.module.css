@@ -9,7 +9,7 @@
 
 .wrapper {
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   display: flex;
   gap: 15px;
 
@@ -20,6 +20,7 @@
   font-weight: 600;
   text-transform: capitalize;
   font-size: 20px;
+  line-height: 28px;
 }
 
 .row ::-webkit-scrollbar {
