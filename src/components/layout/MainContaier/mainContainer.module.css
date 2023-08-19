@@ -1,5 +1,6 @@
 .container {
   background: var(--main-bg-color);
-  padding-bottom: 150px;
-  padding-top: 10px;
+  padding-bottom: 100px;
+  padding-top: 35px;
+  box-shadow: 0 0 50px 20px var(--main-bg-color);
 }

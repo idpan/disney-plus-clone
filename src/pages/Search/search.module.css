@@ -3,7 +3,7 @@
   margin-top: 30px;
   border-radius: 5px;
   display: flex;
-
+  max-width: 1040px;
   gap: 20px;
   align-items: center;
 
@@ -26,7 +26,7 @@
   border: none;
   outline: none;
   background: transparent;
-  height: 60px;
+  height: 70px;
   width: 100%;
 }
 .search_reset button {
@@ -35,18 +35,15 @@
 .result {
   margin-top: 50px;
 }
-.result_container {
-  display: flex;
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, max-content));
   row-gap: 30px;
-  column-gap: 10px;
-  flex-wrap: wrap;
+  column-gap: 15px;
 }
 .result_lable {
   font-weight: 600;
-  font-size: 14px;
-  text-transform: uppercase;
+  font-size: 20px;
+  text-transform: capitalize;
   margin-bottom: 20px;
-}
-.result_image img {
-  width: 150px;
 }
