@@ -1,18 +1,28 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import WatchlistBtn from "../WatchlistBtn/WatchlistBtn";
 import WatchNowBtn from "../WatchNowBtn/WatchNowBtn";
 import style from "./card.module.css";
-const image_base = import.meta.env.VITE_BASE_IMAGE_URL;
+const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMAGE_URL;
+const POSTER_WIDTH = "w185";
+const CARD_DETAIL_WIDTH = "w300";
 function Card(props) {
   return (
     <div className={style.card}>
       <div className={`${style.card_thumbnail} card_thumbnail`}>
-        <img src={image_base + props.poster} alt={props.title} />
+        <img
+          loading="lazy"
+          src={IMAGE_BASE_URL + POSTER_WIDTH + props.poster}
+          alt={props.title}
+        />
       </div>
 
       <div className={`${style.card_preview} card_preview `}>
         <div className={style.preview_thumbnail}>
-          <img src={image_base + props.backdrop_path} alt={props.title} />
+          <img
+            loading="lazy"
+            src={IMAGE_BASE_URL + CARD_DETAIL_WIDTH + props.backdrop_path}
+            alt={props.title}
+          />
           <div className={style.layer}></div>
         </div>
         <div className={style.content}>

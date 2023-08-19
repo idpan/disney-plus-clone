@@ -1,4 +1,4 @@
-swiper-container {
+header swiper-container {
   /* height: fit-content; */
   position: absolute;
   bottom: 30px;
@@ -6,36 +6,36 @@ swiper-container {
   width: 300px;
 }
 
-swiper-slide {
+header swiper-slide {
   margin-top: 10px;
   /* height: fit-content; */
   width: 80px;
   transition: all 0.1s;
 }
-swiper-slide:last-child:hover {
+header swiper-slide:last-child:hover {
   margin-right: 5px;
 }
-swiper-slide:hover {
+header swiper-slide:hover {
   margin-top: 5px;
   cursor: pointer;
   pointer-events: auto;
   width: 85px;
 }
-swiper-slide img {
+header swiper-slide img {
   opacity: 0.6;
   border: 2px solid transparent;
   border-radius: 5px;
   object-fit: contain;
   width: 100%;
 }
-swiper-slide:hover img {
+header swiper-slide:hover img {
   opacity: 1 !important ;
 }
-swiper-container .active ~ label img {
+header swiper-container .active ~ label img {
   border: 2px solid rgb(236, 236, 236);
   opacity: 1;
 }
-swiper-container input {
+header swiper-container input {
   display: none;
 }
 .swiper-button-next svg,

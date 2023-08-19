@@ -1,0 +1,53 @@
+.swiper {
+  overflow-y: visible !important;
+}
+.swiper-button-disabled {
+  display: none !important;
+}
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  display: none;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 150px !important;
+  height: 110% !important;
+}
+.swiper-button-prev.swiper-button-disabled + .swiper-button-next {
+  opacity: 0;
+}
+.swiper:hover .swiper-button-next {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+.swiper-button-next {
+  right: 0 !important;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.swiper-button-prev {
+  left: 0 !important;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "";
+  position: absolute;
+
+  width: 10px;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.swiper-button-next::after {
+  right: 20px;
+  background-image: url(/src/assets/images/arrow\ right.svg);
+}
+.swiper-button-prev::after {
+  left: 20px;
+  background-image: url(/src/assets/images/arrow\ left.svg);
+}

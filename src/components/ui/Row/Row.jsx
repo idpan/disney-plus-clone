@@ -1,30 +1,21 @@
-// useEffect(() => {
-//   fetchDataMovies(fetchUrl);
-// }, [fetchUrl]);
-
-// const fetchDataMovies = async (fetchUrl) => {
-//   const result = await axios.get(fetchUrl);
-//   const data = result.data.results;
-//   setMovies(data);
-//   console.log(result);
-//   return data;
-// };
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { register } from "swiper/element/bundle";
+
 import style from "./row.module.css";
 import Card from "../Card/Card";
 import useFetchData from "../../../features/hooks/useFetchData";
 import transformToDetailContent from "../../../features/utils/transformToDetailContent.js";
-const baseImgUrl = import.meta.env.VITE_BASE_IMAGE_URL;
 
+register();
 function Row({ title, fetchUrl, mediaType }) {
   const [movies, setMovies] = useState(null);
 
+  const swiperElRef = useRef(null);
   const rawDataContent = useFetchData(fetchUrl);
-  if (title === "disney+ originals") {
-    console.log(rawDataContent);
-  }
+
   useEffect(() => {
     transformToDetailContent(rawDataContent, mediaType)
       .then((res) => {
@@ -32,29 +23,50 @@ function Row({ title, fetchUrl, mediaType }) {
       })
       .catch((err) => console.log(err));
   }, [rawDataContent]);
+
+  useEffect(() => {
+    const swiperEl = swiperElRef.current;
+    const params = {
+      // array with CSS urls
+      injectStylesUrls: ["/src/components/ui/Row/swiper-dom.css"],
+    };
+    Object.assign(swiperEl, params);
+    swiperEl.initialize();
+  }, []);
+
   return (
-    <div className={style.row}>
+    <div className={style.row + " row"}>
       <h2 className={style.title}>{title}</h2>
-      <div className={style.wrapper}>
+      <swiper-container
+        init="false"
+        ref={swiperElRef}
+        slides-per-view="auto"
+        navigation="true"
+        space-between="10"
+        initial-slide="0"
+        slides-per-group="6"
+      >
         {movies?.map((movie, index) => {
           if (movie?.poster_path && movie?.backdrop_path) {
             return (
-              <Link key={index} to={`/detail?id=${movie?.id}`}>
-                <Card
-                  title={movie?.title}
-                  poster={movie?.poster_path}
-                  backdrop_path={movie?.backdrop_path}
-                  release_year={movie?.release_year}
-                  original_language={movie?.original_language}
-                  duration={movie?.duration}
-                  age_rating={movie?.age_rating}
-                  overview={movie?.overview}
-                ></Card>
-              </Link>
+              <swiper-slide key={index}>
+                <Link to={`/detail?id=${movie?.id}`}>
+                  <Card
+                    title={movie?.title}
+                    poster={movie?.poster_path}
+                    backdrop_path={movie?.backdrop_path}
+                    release_year={movie?.release_year}
+                    original_language={movie?.original_language}
+                    duration={movie?.duration}
+                    age_rating={movie?.age_rating}
+                    overview={movie?.overview}
+                  ></Card>
+                </Link>
+              </swiper-slide>
             );
           }
         })}
-      </div>
+      </swiper-container>
     </div>
   );
 }

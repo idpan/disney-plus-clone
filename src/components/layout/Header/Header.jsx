@@ -11,7 +11,9 @@ import { async } from "@firebase/util";
 import { seriesDetail, movieDetail } from "../../../detailConstructor";
 import { Link } from "react-router-dom";
 const BASE_IMG_URL = import.meta.env.VITE_BASE_IMAGE_URL;
-const API_KEY = import.meta.env.VITE_API_KEY;
+const HERO_WIDTH = "w1280";
+const SWIPER_THUMB_WIDTH = "w300";
+const LOGO_WIDTH = "w500";
 register(); // TO activate swiperJS
 const en = "en";
 
@@ -150,7 +152,9 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
                 />
                 <label htmlFor={content?.id + "-radio"}>
                   <img
-                    src={BASE_IMG_URL + content?.backdrop_path}
+                    src={
+                      BASE_IMG_URL + SWIPER_THUMB_WIDTH + content?.backdrop_path
+                    }
                     alt={content?.title}
                   />
                 </label>
@@ -161,7 +165,7 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
         <img
           key={featMovie?.id + "-featMovie"}
           className={style.hero_image}
-          src={BASE_IMG_URL + featMovie?.backdrop_path}
+          src={BASE_IMG_URL + HERO_WIDTH + featMovie?.backdrop_path}
           alt={featMovie?.title}
         />
         <div className={style.content}>
@@ -169,7 +173,7 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
           {featMovie?.logo_path && (
             <img
               className={style.title}
-              src={BASE_IMG_URL + featMovie?.logo_path}
+              src={BASE_IMG_URL + LOGO_WIDTH + featMovie?.logo_path}
               alt=""
             />
           )}
