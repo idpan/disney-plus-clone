@@ -19,7 +19,6 @@ import Originals from "./pages/Originals/Originals";
 import Login from "./pages/Login/Login";
 // style
 import "/src/styles/index.css";
-import SandBox from "./pages/SandBox.jsx";
 import Detail from "./pages/Detail/Detail.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
