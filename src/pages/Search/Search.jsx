@@ -73,7 +73,7 @@ function Search() {
             <div className={style.search_input}>
               <img
                 className={style.search_icon}
-                src="/src/assets/images/search-icon.svg"
+                src="/public/assets/images/search-icon.svg"
                 alt="serch-icon"
               />
               <input
@@ -92,7 +92,7 @@ function Search() {
                   setInput("");
                 }}
               >
-                <img src="/src/assets/images/close.svg" alt="reset" />
+                <img src="/public/assets/images/close.svg" alt="reset" />
               </button>
             </div>
           </form>
@@ -105,7 +105,7 @@ function Search() {
                 popularSearch.map((movie) => {
                   if (!movie?.backdrop_path || !movie?.poster_path) return;
                   return (
-                    <Link to={`/detail/${movie.media_type}/${movie.id}`}>
+                    <Link to={`/detail/${movie.medi}/${movie.id}`}>
                       <Card
                         title={movie?.title}
                         poster={movie?.poster_path}

@@ -18,7 +18,7 @@
 }
 .button_icon {
   display: inline-block;
-  background-image: url(/src/assets/images/play-icon-black.png);
+  background-image: url(/public/assets/images/play-icon-black.png);
   width: 1em;
   height: 1em;
   background-size: cover;

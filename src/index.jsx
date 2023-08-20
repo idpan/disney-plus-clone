@@ -34,7 +34,6 @@ const router = createBrowserRouter(
         <Route path="/detail/:mediaType/:id" element={<Detail />}></Route>
       </Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/sandbox" element={<SandBox />}></Route>
     </>
   )
 );
