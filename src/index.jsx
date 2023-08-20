@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../src/app/store.js";
 // component
@@ -15,22 +20,24 @@ import Login from "./pages/Login/Login";
 // style
 import "/src/styles/index.css";
 import SandBox from "./pages/SandBox.jsx";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      { path: "/profile", element: <Profile></Profile> },
-      { path: "/search", element: <Search /> },
-      { path: "/home", element: <Home></Home> },
-      { path: "/movies", element: <Movies></Movies> },
-      { path: "/series", element: <Series></Series> },
-      { path: "/originals", element: <Originals></Originals> },
-    ],
-  },
-  { path: "/login", element: <Login /> },
-  { path: "/sandbox", element: <SandBox></SandBox> },
-]);
+import Detail from "./pages/Detail/Detail.jsx";
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<App />}>
+        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/search" element={<Search />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/movies" element={<Movies />}></Route>
+        <Route path="/originals" element={<Originals />}></Route>
+        <Route path="/series" element={<Series />}></Route>
+        <Route path="/detail/:mediaType/:id" element={<Detail />}></Route>
+      </Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/sandbox" element={<SandBox />}></Route>
+    </>
+  )
+);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>

@@ -1,0 +1,21 @@
+.row swiper-slide {
+  width: fit-content !important;
+  margin-bottom: 35px;
+}
+.row swiper-slide:last-child {
+  margin-right: 50px;
+}
+.poster img {
+  width: 150px;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.title {
+  margin-bottom: 5px;
+  color: #e1e6f0;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 20px;
+  line-height: 28px;
+}

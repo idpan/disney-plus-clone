@@ -1,0 +1,108 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.header {
+  /* background-color: blueviolet; */
+  --aspect-ratio: 21 * 9;
+  width: 100vw;
+  height: calc(100vw / var(--aspect-ratio));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset,
+    0px -100px 200px 0px rgba(0, 0, 0, 0.75) inset;
+  -webkit-box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset,
+    0px -100px 100px 0px rgba(0, 0, 0, 0.753) inset;
+  -moz-box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset,
+    0px -100px 200px 0px rgba(0, 0, 0, 0.75) inset;
+
+  position: relative;
+}
+.hero_image {
+  animation-name: fade-in;
+  position: fixed;
+  animation-duration: 1s;
+  left: 0;
+  z-index: -999;
+  width: 100vw;
+  right: 0;
+  height: calc(100vw / var(--aspect-ratio));
+}
+.hero_image:hover {
+  cursor: pointer;
+}
+.content {
+  position: absolute;
+  bottom: 50px;
+  font-weight: 400;
+  color: white;
+}
+.info {
+  margin-bottom: 30px;
+}
+.info .age_restriction {
+  padding: 2px 10px;
+  border-radius: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.info span:not(:last-child)::after {
+  content: "•";
+  color: #9fa0a1;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.title {
+  margin-bottom: 10px;
+  width: 300px;
+}
+.btn_header_wrapper {
+  display: flex;
+  gap: 20px;
+}
+.content .watch_btn {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  padding: 10px 90px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.addToWatchlist_btn {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border-radius: 7px;
+  transition: all 0.2s;
+}
+.addToWatchlist_btn::after {
+  content: "+";
+}
+.button_icon {
+  display: inline-block;
+  background-image: url(/src/assets/images/play-icon-white.png);
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.btn_header_wrapper button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+
+  transform: scale(105%);
+  cursor: pointer;
+}

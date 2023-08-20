@@ -116,7 +116,7 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
         <Link
           ref={detailHeaderLink}
           className={style.detail_hero}
-          to={`/detail?media_type=${featMovie.media_type}&id=${featMovie.id}`}
+          to={`/detail/${featMovie.media_type}/${featMovie.id}`}
         ></Link>
       )}
       <PageWrapper>

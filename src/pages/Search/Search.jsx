@@ -105,7 +105,7 @@ function Search() {
                 popularSearch.map((movie) => {
                   if (!movie?.backdrop_path || !movie?.poster_path) return;
                   return (
-                    <Link to={`/detail?id=${movie.id}`}>
+                    <Link to={`/detail/${movie.media_type}/${movie.id}`}>
                       <Card
                         title={movie?.title}
                         poster={movie?.poster_path}
@@ -123,7 +123,7 @@ function Search() {
                 searchResult.map((movie) => {
                   if (!movie?.backdrop_path || !movie?.poster_path) return;
                   return (
-                    <Link to={`/detail?id=${movie.id}`}>
+                    <Link to={`/detail/${movie.media_type}/${movie.id}`}>
                       <Card
                         title={movie?.title}
                         poster={movie?.poster_path}
