@@ -93,7 +93,7 @@
 }
 .button_icon {
   display: inline-block;
-  background-image: url(/src/assets/images/play-icon-white.png);
+  background-image: url(/assets/images/play-icon-white.png);
   width: 1.5rem;
   height: 1.5rem;
   background-size: cover;

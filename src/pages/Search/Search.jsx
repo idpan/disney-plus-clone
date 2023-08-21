@@ -73,7 +73,7 @@ function Search() {
             <div className={style.search_input}>
               <img
                 className={style.search_icon}
-                src="/public/assets/images/search-icon.svg"
+                src="/assets/images/search-icon.svg"
                 alt="serch-icon"
               />
               <input
@@ -92,7 +92,7 @@ function Search() {
                   setInput("");
                 }}
               >
-                <img src="/public/assets/images/close.svg" alt="reset" />
+                <img src="/assets/images/close.svg" alt="reset" />
               </button>
             </div>
           </form>

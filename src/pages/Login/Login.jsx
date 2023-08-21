@@ -52,7 +52,7 @@ function Login() {
         <div className={style.login__content}>
           <img
             className={style.login__logo}
-            src="/public/assets/images/cta-logo-one.svg"
+            src="/assets/images/cta-logo-one.svg"
             alt="no image"
           />
 
@@ -72,7 +72,7 @@ function Login() {
           </p>
           <img
             className={style.login__logo}
-            src="/public/assets/images/cta-logo-two.png"
+            src="/assets/images/cta-logo-two.png"
             alt="no image"
           />
         </div>

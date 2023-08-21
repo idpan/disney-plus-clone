@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("public/assets/images/login-background.jpg");
+  background-image: url("/assets/images/login-background.jpg");
 }
 
 .login__content {

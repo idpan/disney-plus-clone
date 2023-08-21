@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { register } from "swiper/element/bundle";
@@ -8,7 +6,7 @@ import style from "./row.module.css";
 import Card from "../Card/Card";
 import useFetchData from "../../../features/hooks/useFetchData";
 import transformToDetailContent from "../../../features/utils/transformToDetailContent.js";
-
+import styleSwiperDom from "./swiper-dom.css";
 register();
 function Row({ title, fetchUrl, mediaType }) {
   const [movies, setMovies] = useState(null);
@@ -28,7 +26,8 @@ function Row({ title, fetchUrl, mediaType }) {
     const swiperEl = swiperElRef.current;
     const params = {
       // array with CSS urls
-      injectStylesUrls: ["/src/components/ui/Row/swiper-dom.css"],
+      injectStyles: [styleSwiperDom],
+      // injectStylesUrls: ["/src/components/ui/Row/swiper-dom.css"],
     };
     Object.assign(swiperEl, params);
     swiperEl.initialize();
@@ -50,7 +49,7 @@ function Row({ title, fetchUrl, mediaType }) {
           if (movie?.poster_path && movie?.backdrop_path) {
             return (
               <swiper-slide key={index}>
-                <Link to={`/detail/${mediaType}/${movie.id}`}>
+                <Link to={`/detail/${movie.media_type}/${movie.id}`}>
                   <Card
                     title={movie?.title}
                     poster={movie?.poster_path}

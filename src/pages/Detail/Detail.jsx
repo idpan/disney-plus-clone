@@ -66,7 +66,7 @@ function Detail() {
         genres={detailData?.genres}
       ></HeaderWithoutSwiper>
       <MainContainer>
-        <PageWrapper>
+        <PageWrapper isCollapse={true}>
           {similarContent[0] && (
             <RowDetail title="more like this" data={similarContent}></RowDetail>
           )}

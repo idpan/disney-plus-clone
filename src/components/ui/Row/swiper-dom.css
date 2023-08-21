@@ -45,9 +45,9 @@
 }
 .swiper-button-next::after {
   right: 20px;
-  background-image: url(/public/assets/images/arrow\ right.svg);
+  background-image: url(/assets/images/arrow\ right.svg);
 }
 .swiper-button-prev::after {
   left: 20px;
-  background-image: url(/public/assets/images/arrow\ left.svg);
+  background-image: url(/assets/images/arrow\ left.svg);
 }

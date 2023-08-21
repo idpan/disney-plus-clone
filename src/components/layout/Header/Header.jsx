@@ -6,8 +6,6 @@ import { register } from "swiper/element/bundle";
 
 import style from "./header.module.css";
 import "./style-swiper.css";
-import { push } from "firebase/database";
-import { async } from "@firebase/util";
 import { seriesDetail, movieDetail } from "../../../detailConstructor";
 import { Link } from "react-router-dom";
 const BASE_IMG_URL = import.meta.env.VITE_BASE_IMAGE_URL;
@@ -15,7 +13,6 @@ const HERO_WIDTH = "w1280";
 const SWIPER_THUMB_WIDTH = "w300";
 const LOGO_WIDTH = "w500";
 register(); // TO activate swiperJS
-const en = "en";
 
 function toHoursAndMinutes(totalMinutes) {
   const hours = Math.floor(totalMinutes / 60);
@@ -87,8 +84,9 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
     const swiperEl = swiperElRef.current;
     const params = {
       // array with CSS urls
-      injectStylesUrls: ["/src/components/layout/Header/style-swiper.css"],
+      injectStylesUrls: ["src/components/layout/Header/style-swiper.css"],
     };
+    console.log();
     Object.assign(swiperEl, params);
     swiperEl.initialize();
   }, []);

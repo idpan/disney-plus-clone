@@ -43,11 +43,6 @@
 .hero_image:hover {
   cursor: pointer;
 }
-.detail_hero {
-  /* position: fixed;
-  z-index: -9;
-  background-color: salmon; */
-}
 .content {
   position: absolute;
   bottom: 50px;
@@ -104,7 +99,7 @@
 }
 .button_icon {
   display: inline-block;
-  background-image: url(/src/assets/images/play-icon-white.png);
+  background-image: url(/assets/images/play-icon-white.png);
   width: 1.5rem;
   height: 1.5rem;
   background-size: cover;
@@ -118,14 +113,43 @@
   cursor: pointer;
 }
 
-/* swiper stilyng */
-.swiper {
-  width: 100%;
-  height: 100%;
+header swiper-container {
+  /* height: fit-content; */
+  position: absolute;
+  bottom: 30px;
+  right: 100px;
+  width: 300px;
 }
-.swiper_slider {
-  background-color: salmon;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+header swiper-slide {
+  margin-top: 10px;
+  /* height: fit-content; */
+  width: 80px;
+  transition: all 0.1s;
+}
+header swiper-slide:last-child:hover {
+  margin-right: 5px;
+}
+header swiper-slide:hover {
+  margin-top: 5px;
+  cursor: pointer;
+  pointer-events: auto;
+  width: 85px;
+}
+header swiper-slide img {
+  opacity: 0.6;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  object-fit: contain;
+  width: 100%;
+}
+header swiper-slide:hover img {
+  opacity: 1 !important ;
+}
+header swiper-container .active ~ label img {
+  border: 2px solid rgb(236, 236, 236);
+  opacity: 1;
+}
+header swiper-container input {
+  display: none;
 }

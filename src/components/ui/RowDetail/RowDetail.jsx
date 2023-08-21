@@ -4,6 +4,7 @@ import { register } from "swiper/element/bundle";
 
 import style from "./row.module.css";
 import Card from "../Card/Card";
+import styleSwiperDom from "./swiper-dom.css";
 
 register();
 function RowDetail({ title, data }) {
@@ -13,7 +14,9 @@ function RowDetail({ title, data }) {
     const swiperEl = swiperElRef.current;
     const params = {
       // array with CSS urls
-      injectStylesUrls: ["/src/components/ui/RowDetail/swiper-dom.css"],
+      injectStyles: [styleSwiperDom],
+
+      // injectStylesUrls: ["/src/components/ui/RowDetail/swiper-dom.css"],
     };
     Object.assign(swiperEl, params);
     swiperEl.initialize();
