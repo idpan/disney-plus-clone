@@ -15,8 +15,6 @@ function RowDetail({ title, data }) {
     const params = {
       // array with CSS urls
       injectStyles: [styleSwiperDom],
-
-      // injectStylesUrls: ["/src/components/ui/RowDetail/swiper-dom.css"],
     };
     Object.assign(swiperEl, params);
     swiperEl.initialize();

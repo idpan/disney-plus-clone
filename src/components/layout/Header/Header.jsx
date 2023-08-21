@@ -5,7 +5,7 @@ import PageWrapper from "../PageWrapper/PageWrapper";
 import { register } from "swiper/element/bundle";
 
 import style from "./header.module.css";
-import "./style-swiper.css";
+import styleSwiperDom from "./swiper-dom.css";
 import { seriesDetail, movieDetail } from "../../../detailConstructor";
 import { Link } from "react-router-dom";
 const BASE_IMG_URL = import.meta.env.VITE_BASE_IMAGE_URL;
@@ -68,15 +68,6 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
     setDataContent(transformedData);
     console.log(transformedData);
   };
-  // useEffect(() => {
-  //   // fetchDataContent(fetchUrl).then((data) => {
-  //   //   transformDataContent(data).then((data) => {
-  //   //     setDataContent(data);
-  //   //     console.log(data);
-  //   //   });
-  //   getDataContent(fetchUrl)
-  //   });
-  // } ,[]);
   useEffect(() => {
     getDataContent(fetchUrl);
   }, []);
@@ -84,7 +75,7 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
     const swiperEl = swiperElRef.current;
     const params = {
       // array with CSS urls
-      injectStylesUrls: ["src/components/layout/Header/style-swiper.css"],
+      injectStyles: [styleSwiperDom],
     };
     console.log();
     Object.assign(swiperEl, params);
@@ -119,6 +110,7 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
       )}
       <PageWrapper>
         <swiper-container
+          className={style.swiper_container}
           onClick={(e) => {
             e.stopPropagation();
           }}
@@ -132,7 +124,7 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
         >
           {dataContent?.map((content, index) => {
             return (
-              <swiper-slide key={content?.id}>
+              <swiper-slide className={style.swiper_slide} key={content?.id}>
                 <input
                   defaultChecked={index === 0}
                   // checked={selectedMovieId === content.id}
@@ -167,7 +159,6 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
           alt={featMovie?.title}
         />
         <div className={style.content}>
-          {/* {console.log(featMovie)} */}
           {featMovie?.logo_path && (
             <img
               className={style.title}

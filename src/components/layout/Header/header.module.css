@@ -113,7 +113,7 @@
   cursor: pointer;
 }
 
-header swiper-container {
+.swiper_container {
   /* height: fit-content; */
   position: absolute;
   bottom: 30px;
@@ -121,35 +121,35 @@ header swiper-container {
   width: 300px;
 }
 
-header swiper-slide {
+.swiper_slide {
   margin-top: 10px;
   /* height: fit-content; */
   width: 80px;
   transition: all 0.1s;
 }
-header swiper-slide:last-child:hover {
+.swiper_slide:last-child:hover {
   margin-right: 5px;
 }
-header swiper-slide:hover {
+.swiper_slide:hover {
   margin-top: 5px;
   cursor: pointer;
   pointer-events: auto;
   width: 85px;
 }
-header swiper-slide img {
+.swiper_slide img {
   opacity: 0.6;
   border: 2px solid transparent;
   border-radius: 5px;
   object-fit: contain;
   width: 100%;
 }
-header swiper-slide:hover img {
+.swiper_slide:hover img {
   opacity: 1 !important ;
 }
-header swiper-container .active ~ label img {
+.swiper_container .active ~ label img {
   border: 2px solid rgb(236, 236, 236);
   opacity: 1;
 }
-header swiper-container input {
+.swiper_container input {
   display: none;
 }

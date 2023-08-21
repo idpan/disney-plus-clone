@@ -27,7 +27,6 @@ function Row({ title, fetchUrl, mediaType }) {
     const params = {
       // array with CSS urls
       injectStyles: [styleSwiperDom],
-      // injectStylesUrls: ["/src/components/ui/Row/swiper-dom.css"],
     };
     Object.assign(swiperEl, params);
     swiperEl.initialize();
