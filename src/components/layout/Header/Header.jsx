@@ -110,7 +110,7 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
       )}
       <PageWrapper>
         <swiper-container
-          className={style.swiper_container}
+          class={style.swiper_container}
           onClick={(e) => {
             e.stopPropagation();
           }}
@@ -124,7 +124,7 @@ function Header({ fetchUrl, isDetailHeader, mediaType }) {
         >
           {dataContent?.map((content, index) => {
             return (
-              <swiper-slide className={style.swiper_slide} key={content?.id}>
+              <swiper-slide class={style.swiper_slide} key={content?.id}>
                 <input
                   defaultChecked={index === 0}
                   // checked={selectedMovieId === content.id}
