@@ -47,3 +47,32 @@
   text-transform: capitalize;
   margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  .search {
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+  .search .search img {
+    width: 24px;
+  }
+
+  .search_input {
+    justify-content: start;
+    gap: 10px;
+  }
+  .search_input input {
+    font-size: 16px;
+    height: 60px;
+  }
+  .result {
+    margin-top: 30px;
+  }
+  .container {
+    padding-bottom: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, max-content));
+  }
+  .result_lable {
+    margin-bottom: 15px;
+  }
+}

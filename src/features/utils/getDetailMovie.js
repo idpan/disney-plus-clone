@@ -53,50 +53,49 @@ const getEnLogo = (movie) => {
   return objResult?.file_path;
 };
 
-export default function movieDetail(movieId) {
-  return getData(movieId).then((movie) => {
-    const detail = {
-      title: movie?.title,
-      id: movie?.id,
-      media_type: "movie",
-      backdrop_path: movie?.backdrop_path,
-      poster_path: movie?.poster_path,
-      overview: movie?.overview,
-      similar: movie?.similar,
-      release_year: movie?.release_date?.split("-")[0],
-      genres: getGenres(movie),
-      logo_path: getEnLogo(movie),
-      original_language: getLanguage(movie),
-      age_rating: getUSMovieCertification(movie),
-      trailer_youtube_key: getTrailerVideo(movie),
-      duration: getMovieDuration(movie),
-      addtoWatchlist: () => {
-        const options = {
-          method: "POST",
-          headers: {
-            accept: "application/json",
-            "content-type": "application/json",
-            Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
-          },
-          body: JSON.stringify({
-            media_type: "movie",
-            media_id: movieId,
-            watchlist: true,
-            data: movie,
-          }),
-        };
+export default async function movieDetail(movieId) {
+  const movie = await getData(movieId);
+  const detail = {
+    title: movie?.title,
+    id: movie?.id,
+    media_type: "movie",
+    backdrop_path: movie?.backdrop_path,
+    poster_path: movie?.poster_path,
+    overview: movie?.overview,
+    similar: movie?.similar,
+    release_year: movie?.release_date?.split("-")[0],
+    genres: getGenres(movie),
+    logo_path: getEnLogo(movie),
+    original_language: getLanguage(movie),
+    age_rating: getUSMovieCertification(movie),
+    trailer_youtube_key: getTrailerVideo(movie),
+    duration: getMovieDuration(movie),
+    addtoWatchlist: () => {
+      const options = {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
+        },
+        body: JSON.stringify({
+          media_type: "movie",
+          media_id: movieId,
+          watchlist: true,
+          data: movie,
+        }),
+      };
 
-        fetch(
-          `https://api.themoviedb.org/3/account/${
-            import.meta.env.VITE_ACCOUNT_ID
-          }/watchlist`,
-          options
-        )
-          .then((response) => response.json())
-          .then((response) => console.log(response))
-          .catch((err) => console.error(err));
-      },
-    };
-    return detail;
-  });
+      fetch(
+        `https://api.themoviedb.org/3/account/${
+          import.meta.env.VITE_ACCOUNT_ID
+        }/watchlist`,
+        options
+      )
+        .then((response) => response.json())
+        .then((response_1) => console.log(response_1))
+        .catch((err) => console.error(err));
+    },
+  };
+  return detail;
 }

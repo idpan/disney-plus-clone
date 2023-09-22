@@ -7,7 +7,10 @@ import Row from "../../components/ui/Row/Row";
 function Series() {
   return (
     <>
-      <Header fetchUrl={requests.series.getTrendingSeries}></Header>
+      <Header
+        fetchUrl={requests.series.getTrendingSeries}
+        mediaType="tv"
+      ></Header>
       <MainContainer>
         <PageWrapper isCollapse={true}>
           <Row

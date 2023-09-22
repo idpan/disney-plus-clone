@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { register } from "swiper/element/bundle";
 
 import style from "./row.module.css";
 import Card from "../Card/Card";
-import styleSwiperDom from "./swiper-dom.css";
+import styleSwiperDom from "./swiper-dom.css?inline";
 
 register();
 function RowDetail({ title, data }) {
@@ -30,7 +30,7 @@ function RowDetail({ title, data }) {
         navigation="true"
         space-between="10"
         initial-slide="0"
-        slides-per-group="6"
+        slides-per-group="5"
       >
         {data?.map((movie, index) => {
           if (movie?.poster_path && movie?.backdrop_path) {

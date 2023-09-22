@@ -1,16 +1,9 @@
-import { useSelector } from "react-redux/es/hooks/useSelector";
-
 import { Navigate, Outlet } from "react-router";
 import Layout from "./components/layout/Layout";
 
 function App() {
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-
-  return !isLoggedIn ? (
-    <Navigate to="/login"></Navigate>
-  ) : (
+  return (
     <>
-      <Navigate to="/home"></Navigate>
       <Layout>
         <Outlet></Outlet>
       </Layout>

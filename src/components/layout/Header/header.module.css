@@ -6,150 +6,144 @@
     opacity: 1;
   }
 }
-.header_detail:hover {
-  cursor: auto !important;
-}
-.header {
-  /* background-color: blueviolet; */
-  --aspect-ratio: 21 * 9;
-  width: 100vw;
-  height: calc(100vw / var(--aspect-ratio));
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 
-  box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset,
-    0px -100px 200px 0px rgba(0, 0, 0, 0.75) inset;
-  -webkit-box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset,
-    0px -100px 100px 0px rgba(0, 0, 0, 0.753) inset;
-  -moz-box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset,
-    0px -100px 200px 0px rgba(0, 0, 0, 0.75) inset;
-
-  position: relative;
-}
 .header:hover {
   cursor: pointer;
 }
-.hero_image {
-  animation-name: fade-in;
-  position: fixed;
-  animation-duration: 1s;
-  left: 0;
-  z-index: -999;
-  width: 100vw;
-  right: 0;
-  height: calc(100vw / var(--aspect-ratio));
-}
-.hero_image:hover {
-  cursor: pointer;
-}
-.content {
-  position: absolute;
-  bottom: 50px;
-  font-weight: 400;
-  color: white;
-}
-.info {
-  margin-bottom: 30px;
-}
-.info .age_restriction {
-  padding: 2px 10px;
-  border-radius: 0.25rem;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.info span:not(:last-child)::after {
-  content: "•";
-  color: #9fa0a1;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-.title {
-  margin-bottom: 10px;
-  width: 300px;
-  /* border: 2px solid salmon; */
-}
-.btn_header_wrapper {
-  display: flex;
-  gap: 20px;
-}
-.content .watch_btn {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.2);
-  font-size: 1rem;
-  padding: 10px 90px;
-  border-radius: 7px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 600;
-  transition: all 0.2s;
-}
 
-.addToWatchlist_btn {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.2);
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  border-radius: 7px;
-  transition: all 0.2s;
+@media only screen and (max-width: 992px) {
+  .header_desktop {
+    display: none;
+  }
 }
-.addToWatchlist_btn::after {
-  content: "+";
-}
-.button_icon {
-  display: inline-block;
-  background-image: url(/assets/images/play-icon-white.png);
-  width: 1.5rem;
-  height: 1.5rem;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.btn_header_wrapper button:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+@media only screen and (min-width: 992px) {
+  .header {
+    --aspect-ratio: 21 * 9;
+    width: 100vw;
+    height: calc(100vw / var(--aspect-ratio));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset,
+      0px -100px 200px 0px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset,
+      0px -100px 100px 0px rgba(0, 0, 0, 0.753) inset;
+    -moz-box-shadow: 150px 0px 400px 0px rgba(0, 0, 0, 0.75) inset;
 
-  transform: scale(105%);
-  cursor: pointer;
-}
+    position: relative;
+  }
+  .header_detail:hover {
+    cursor: auto !important;
+  }
+  .header input {
+    display: none;
+  }
+  .hero_image {
+    display: inline-block;
+    animation-name: fade-in;
+    position: fixed;
+    animation-duration: 1s;
+    left: 0;
+    z-index: -999;
+    width: 100vw;
+    right: 0;
+    height: calc(100vw / var(--aspect-ratio));
+  }
+  .hero_image:hover {
+    cursor: pointer;
+  }
+  .content {
+    position: absolute;
+    bottom: 50px;
+    font-weight: 400;
+    color: white;
+  }
+  .info {
+    margin-bottom: 30px;
+  }
+  .info .age_restriction {
+    padding: 2px 10px;
+    border-radius: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .info span:not(:last-child)::after {
+    content: "•";
+    color: #9fa0a1;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .title {
+    margin-bottom: 10px;
+    width: 300px;
+  }
+  .btn_header_wrapper {
+    display: flex;
+    gap: 20px;
+  }
+  .content .watch_btn {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 1rem;
+    padding: 10px 90px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
 
-.swiper_container {
-  /* height: fit-content; */
-  position: absolute;
-  bottom: 30px;
-  right: 100px;
-  width: 300px;
-}
+  .button_icon {
+    display: inline-block;
+    background-image: url(/assets/images/play-icon-white.png);
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .btn_header_wrapper button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 
-.swiper_slide {
-  margin-top: 10px;
-  /* height: fit-content; */
-  width: 80px;
-  transition: all 0.1s;
-}
-.swiper_slide:last-child:hover {
-  margin-right: 5px;
-}
-.swiper_slide:hover {
-  margin-top: 5px;
-  cursor: pointer;
-  pointer-events: auto;
-  width: 85px;
-}
-.swiper_slide img {
-  opacity: 0.6;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  object-fit: contain;
-  width: 100%;
-}
-.swiper_slide:hover img {
-  opacity: 1 !important ;
-}
-.swiper_container .active ~ label img {
-  border: 2px solid rgb(236, 236, 236);
-  opacity: 1;
-}
-.swiper_container input {
-  display: none;
+    transform: scale(105%);
+    cursor: pointer;
+  }
+
+  .swiper_container_desktop {
+    position: absolute;
+    bottom: 30px;
+    right: 100px;
+    width: 300px;
+  }
+
+  .swiper_slide_desktop {
+    margin-top: 10px;
+    width: 80px;
+    transition: all 0.1s;
+  }
+  .swiper_slide_desktop:last-child:hover {
+    margin-right: 5px;
+  }
+  .swiper_slide_desktop:hover {
+    margin-top: 5px;
+    cursor: pointer;
+    pointer-events: auto;
+    width: 85px;
+  }
+  .swiper_slide_desktop img {
+    opacity: 0.6;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    object-fit: contain;
+    width: 100%;
+  }
+  .swiper_slide_desktop:hover img {
+    opacity: 1 !important ;
+    cursor: pointer;
+  }
+  .swiper_slide_desktop .active ~ label img {
+    border: 2px solid rgb(236, 236, 236);
+
+    opacity: 1;
+  }
 }

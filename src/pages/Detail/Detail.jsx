@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import getDetailMovie from "../../features/utils/getDetailMovie";
 import getDetailSeries from "../../features/utils/getDetailSeries";
-
 import HeaderWithoutSwiper from "../../components/layout/HeaderWithoutSwiper/HeaderWithoutSwiper";
-import RowDetail from "../../components/ui/RowDetail/RowDetail";
-import PageWrapper from "../../components/layout/PageWrapper/PageWrapper";
 import MainContainer from "../../components/layout/MainContaier/MainContainer";
+import Row from "../../components/ui/Row/Row";
+import PageWrapper from "../../components/layout/PageWrapper/PageWrapper";
+
 function Detail() {
   const { mediaType, id } = useParams();
-  const [detailData, setDetailData] = useState(null);
-  const [similarContent, setSimilarContent] = useState([]);
-  const getDetail = (id, mediaType) => {
+  const [detailData, setDetailData] = useState([]);
+  const getDetailData = (id, mediaType) => {
     if (mediaType === "movie") {
       getDetailMovie(id).then((res) => {
         setDetailData(res);
@@ -23,38 +22,14 @@ function Detail() {
       });
     }
   };
-  const getSimilarContent = (data) => {
-    //transform data to direct object
-    let result;
-    if (mediaType === "movie") {
-      result = data?.map(async (content) => {
-        const res = await getDetailMovie(content.id);
-        return res;
-      });
-    }
-    if (mediaType === "tv") {
-      result = data?.map(async (content) => {
-        const res = await getDetailSeries(content.id);
-        return res;
-      });
-    }
-    return Promise.all(result);
-  };
+
   useEffect(() => {
-    console.log(id);
-    getDetail(id, mediaType);
-  }, []);
-  useEffect(() => {
-    if (detailData) {
-      getSimilarContent(detailData?.similar?.results).then((res) => {
-        setSimilarContent(res);
-      });
-    }
-  }, [detailData]);
-  console.log(similarContent);
+    getDetailData(id, mediaType);
+  }, [mediaType, id]);
 
   return (
     <>
+      {console.log(detailData)}
       <HeaderWithoutSwiper
         background={detailData?.backdrop_path}
         title={detailData?.title}
@@ -64,14 +39,11 @@ function Detail() {
         language={detailData?.original_language}
         age_rating={detailData?.age_rating}
         genres={detailData?.genres}
+        overview={detailData?.overview}
+        video_key={detailData?.trailer_youtube_key}
       ></HeaderWithoutSwiper>
-      <MainContainer>
-        <PageWrapper isCollapse={true}>
-          {similarContent[0] && (
-            <RowDetail title="more like this" data={similarContent}></RowDetail>
-          )}
-        </PageWrapper>
-      </MainContainer>
+
+      <div style={{ height: "150px" }}></div>
     </>
   );
 }

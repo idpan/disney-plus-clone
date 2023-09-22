@@ -1,7 +1,18 @@
 import React from "react";
-import "./footer.module.css";
+import style from "./footer.module.css";
 function Footer() {
-  return <footer>Disney Plus - Clone made by idpan</footer>;
+  return (
+    <footer className={style.footer}>
+      Disney+ Hotstar Clone made by{" "}
+      <a
+        className={style.link}
+        href="linkedin.com/in/idpan-ashari"
+        target="_blank"
+      >
+        idpan
+      </a>
+    </footer>
+  );
 }
 
 export default Footer;

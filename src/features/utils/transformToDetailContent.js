@@ -1,24 +1,42 @@
+import { useEffect, useState } from "react";
 import getDetailMovie from "./getDetailMovie";
 import getDetailSeries from "./getDetailSeries";
 
 const transformToDetailContent = (data, mediaType) => {
-  //transform data to direct object
-  let result;
+  if (mediaType === "all") {
+    return Promise.all(
+      data?.map((content) => {
+        if (content.media_type === "movie") {
+          return getDetailMovie(content.id).then((res) => {
+            return res;
+          });
+        }
+        if (content.media_type === "tv") {
+          return getDetailSeries(content.id).then((res) => {
+            return res;
+          });
+        }
+      })
+    );
+  }
+
   if (mediaType === "movie") {
-    result = data?.map((content) => {
-      return getDetailMovie(content.id).then((res) => {
-        return res;
-      });
-    });
+    return Promise.all(
+      data?.map((content) => {
+        return getDetailMovie(content.id).then((res) => {
+          return res;
+        });
+      })
+    );
   }
   if (mediaType === "tv") {
-    result = data?.map((content) => {
-      return getDetailSeries(content.id).then((res) => {
-        return res;
-      });
-    });
+    return Promise.all(
+      data?.map((content) => {
+        return getDetailSeries(content.id).then((res) => {
+          return res;
+        });
+      })
+    );
   }
-  return Promise.all(result);
 };
-
 export default transformToDetailContent;

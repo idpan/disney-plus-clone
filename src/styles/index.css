@@ -18,12 +18,15 @@ button {
   padding: 0;
   box-sizing: border-box;
   font-weight: inherit;
+  letter-spacing: 0.5px;
   font-family: "Inter", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 :root {
   --main-bg-color: #040714;
   --main-text-color: #e1e6f0;
-  --active-text-color: #fff;
+  --active-text-color: #f8f8f9;
+  --second-text-color: #8f98b2;
 }
 html {
   scroll-behavior: smooth;

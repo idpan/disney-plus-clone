@@ -1,0 +1,67 @@
+.swiper_container_mobile {
+  position: relative;
+  height: 425px;
+}
+.swiper_slide_mobile {
+  background-color: #040714;
+}
+.hero {
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.hero .logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  right: 30px;
+}
+.hero .layer {
+  box-shadow: 0px -30px 20px 0px rgb(0, 0, 0) inset;
+  -webkit-box-shadow: 0px -30px 100px 20px rgb(0, 0, 0) inset;
+  -moz-box-shadow: 0px -30px 20px 0px rgb(0, 0, 0) inset;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  right: 0;
+  left: 0;
+}
+.info {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  text-align: center;
+}
+.info span:not(:last-child)::after {
+  content: "•";
+  color: #9fa0a1;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.btn_header_wrapper {
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  width: 200px;
+  height: 35px;
+  align-items: center;
+  margin: auto;
+}
+.btn_header_wrapper button {
+  color: white;
+
+  background-color: rgba(255, 255, 255, 0.15);
+}
+/* desktop screen */
+@media only screen and (min-width: 992px) {
+  .swiper_container_mobile {
+    display: none;
+  }
+}

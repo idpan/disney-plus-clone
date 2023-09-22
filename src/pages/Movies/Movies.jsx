@@ -7,7 +7,10 @@ import Row from "../../components/ui/Row/Row";
 function Movies() {
   return (
     <>
-      <Header fetchUrl={requests.movies.getTrendingMovie}></Header>
+      <Header
+        fetchUrl={requests.movies.getTrendingMovie}
+        mediaType="movie"
+      ></Header>
       <MainContainer>
         <PageWrapper isCollapse={true}>
           <Row

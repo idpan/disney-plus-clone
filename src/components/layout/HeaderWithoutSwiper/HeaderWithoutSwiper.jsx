@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import PageWrapper from "../PageWrapper/PageWrapper";
-
+import { Link } from "react-router-dom";
 import style from "./headerWithoutSwiper.module.css";
 
 const BASE_IMAGE_URL = import.meta.env.VITE_BASE_IMAGE_URL;
@@ -15,15 +15,15 @@ function HeaderWithoutSwiper({
   language,
   age_rating,
   genres,
+  overview,
+  video_key,
 }) {
   return (
     <header className={style.header}>
+      <div className={style.hero_image}>
+        <img src={BASE_IMAGE_URL + HERO_SIZE + background} alt={title} />
+      </div>
       <PageWrapper>
-        <img
-          className={style.hero_image}
-          src={BASE_IMAGE_URL + HERO_SIZE + background}
-          alt={title}
-        />
         <div className={style.content}>
           {logo && (
             <img
@@ -40,20 +40,18 @@ function HeaderWithoutSwiper({
               <span className={style.age_restriction}>{age_rating}</span>
             )}
           </div>
-          <div className={style.info}>
+          <div className={style.btn_header_wrapper}>
+            <Link to={`/watch/${video_key}`} className={style.watch_btn}>
+              <span className={style.button_icon}></span>
+              <span>Watch Now</span>
+            </Link>
+          </div>
+          <div className={style.genres}>
             {genres?.map((genre, index) => {
               return <span key={index}>{genre}</span>;
             })}
           </div>
-          <div className={style.btn_header_wrapper}>
-            <button className={style.watch_btn}>
-              <span className={style.button_icon}></span>
-              <span>Watch Now</span>
-            </button>
-            <button className={style.addToWatchlist_btn}>
-              <span></span>
-            </button>
-          </div>
+          <p className={style.overview}>{overview}</p>
         </div>
       </PageWrapper>
     </header>

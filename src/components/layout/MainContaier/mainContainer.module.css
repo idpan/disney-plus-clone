@@ -1,6 +1,11 @@
 .container {
   background: var(--main-bg-color);
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   padding-top: 35px;
   box-shadow: 0 0 50px 20px var(--main-bg-color);
+}
+@media screen and (min-width: 992px) {
+  .container {
+    padding-bottom: 100px;
+  }
 }

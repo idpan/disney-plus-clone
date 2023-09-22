@@ -1,20 +1,14 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
-import { useSelector } from "react-redux/es/hooks/useSelector";
-
+import React, { useEffect, useState } from "react";
 import requests from "../../../requests";
 import Header from "../../components/layout/Header/Header";
 import Row from "../../components/ui/Row/Row";
 import PageWrapper from "../../components/layout/PageWrapper/PageWrapper";
 import MainContainer from "../../components/layout/MainContaier/MainContainer";
 
-function Home() {
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  return !isLoggedIn ? (
-    <Navigate to="/"></Navigate>
-  ) : (
+function Home(props) {
+  return (
     <>
-      <Header fetchUrl={requests.home.getTrendingAll}></Header>
+      <Header fetchUrl={requests.home.getTrendingAll} mediaType="all"></Header>
       <MainContainer>
         <PageWrapper isCollapse={true}>
           <Row

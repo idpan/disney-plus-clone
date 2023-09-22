@@ -1,11 +1,14 @@
 import React from "react";
-import WatchlistBtn from "../WatchlistBtn/WatchlistBtn";
 import WatchNowBtn from "../WatchNowBtn/WatchNowBtn";
 import style from "./card.module.css";
 const IMAGE_BASE_URL = import.meta.env.VITE_BASE_IMAGE_URL;
 const POSTER_WIDTH = "w185";
 const CARD_DETAIL_WIDTH = "w300";
 function Card(props) {
+  function hai(e) {
+    e.stopPropagation();
+    console.log("first");
+  }
   return (
     <div className={style.card}>
       <div className={`${style.card_thumbnail} card_thumbnail`}>
@@ -27,8 +30,7 @@ function Card(props) {
         </div>
         <div className={style.content}>
           <div className={style.card_btn_container}>
-            <WatchNowBtn />
-            <WatchlistBtn />
+            <WatchNowBtn video_key={props.video_key} />
           </div>
           <div className={style.info}>
             {props.release_year && <span>{props.release_year}</span>}
